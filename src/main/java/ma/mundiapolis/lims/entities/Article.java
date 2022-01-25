@@ -20,4 +20,10 @@ public class Article {
     private boolean isConsumable;
     private int currentStock;
     private int minStock;
+    private String photo;
+    @ManyToOne
+    private Category category;
+    @ManyToOne
+    private Laboratory laboratory;
+
 }
