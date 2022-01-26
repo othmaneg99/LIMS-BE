@@ -15,5 +15,8 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 
 @RestResource(path = "/articlesByKeyword")
     public List<Article> findByNameContains(@Param("mc") String mc);
+@RestResource(path = "/articles")
+    public List<Article> findAll();
+
 
 }

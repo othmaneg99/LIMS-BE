@@ -20,7 +20,7 @@ public class Article {
     private boolean isConsumable;
     private int currentStock;
     private int minStock;
-    private String photo;
+    private String photoName;
     @ManyToOne
     private Category category;
     @ManyToOne
