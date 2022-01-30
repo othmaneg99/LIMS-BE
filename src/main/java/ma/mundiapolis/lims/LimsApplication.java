@@ -1,6 +1,7 @@
 package ma.mundiapolis.lims;
 
 import ma.mundiapolis.lims.dao.ArticleRepository;
+import ma.mundiapolis.lims.dao.CategoryRepository;
 import ma.mundiapolis.lims.dao.LaboratoryRepository;
 import ma.mundiapolis.lims.entities.Article;
 import ma.mundiapolis.lims.entities.Category;
@@ -19,6 +20,8 @@ public class LimsApplication implements CommandLineRunner {
     @Autowired
     LaboratoryRepository laboratoryRepository;
     @Autowired
+    CategoryRepository categoryRepository;
+    @Autowired
     private RepositoryRestConfiguration repositoryRestConfiguration;
 
     public static void main(String[] args) {
@@ -31,14 +34,9 @@ public class LimsApplication implements CommandLineRunner {
         repositoryRestConfiguration.exposeIdsFor(Article.class,Laboratory.class, Category.class);
         limsService.initArticles();
         limsService.initLaboratories();
-        laboratoryRepository.save(new Laboratory(null,"robotique",true,null));
-        laboratoryRepository.save(new Laboratory(null,"optique",true,null));
-        laboratoryRepository.save(new Laboratory(null,"électricité",true,null));
-        laboratoryRepository.save(new Laboratory(null,"chimie",true,null));
-        laboratoryRepository.save(new Laboratory(null,"électronique",true,null));
-        laboratoryRepository.save(new Laboratory(null,"génie industriel",true,null));
-        laboratoryRepository.save(new Laboratory(null,"génie civil",true,null));
 
+
+/*
         Article article = new Article();
         article.setRef("dxs-25166");
         article.setName("Arduino");
@@ -52,6 +50,7 @@ public class LimsApplication implements CommandLineRunner {
         article.setPhotoName("arduino.jpg");
         article.setMinStock(2);
         article.setLaboratory(laboratoryRepository.findAllById(new Long(5)));
+        article.setCategory(categoryRepository.findAllById(new Long(1)));
         articleRepository.save(article);
 
         Article article2 = new Article();
@@ -66,6 +65,10 @@ public class LimsApplication implements CommandLineRunner {
         article2.setPhotoName("multimetre.jpg");
         article2.setMinStock(2);
         article2.setLaboratory(laboratoryRepository.findAllById(new Long(5)));
+        article.setCategory(categoryRepository.findAllById(new Long(2)));
         articleRepository.save(article2);
+
+*/
+
     }
 }
