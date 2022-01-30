@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RepositoryRestResource
 @CrossOrigin("*")
-public interface LaboratoryRepository extends JpaRepository<Laboratory,Long> {
+public interface LaboratoryRepository extends JpaRepository<Laboratory, Long> {
     public Laboratory findAllById(Long id);
 }

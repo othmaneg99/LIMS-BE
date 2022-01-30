@@ -27,11 +27,13 @@ public class LimsApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(LimsApplication.class, args);
     }
+
     @Autowired
     private LimsService limsService;
+
     @Override
     public void run(String... args) throws Exception {
-        repositoryRestConfiguration.exposeIdsFor(Article.class,Laboratory.class, Category.class);
+        repositoryRestConfiguration.exposeIdsFor(Article.class, Laboratory.class, Category.class);
         limsService.initArticles();
         limsService.initLaboratories();
 

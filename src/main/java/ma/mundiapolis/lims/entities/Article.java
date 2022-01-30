@@ -7,14 +7,16 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String ref;
     private String name;
-    @Column(length = 100000 )
+    @Column(length = 100000)
     private String description;
     private boolean isActive;
     private boolean isConsumable;
@@ -25,5 +27,4 @@ public class Article {
     private Category category;
     @ManyToOne
     private Laboratory laboratory;
-
 }

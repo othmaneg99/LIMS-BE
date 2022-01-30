@@ -13,10 +13,9 @@ import java.util.List;
 @CrossOrigin("*")
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 
-@RestResource(path = "/articlesByKeyword")
+    @RestResource(path = "/articlesByKeyword")
     public List<Article> findByNameContains(@Param("mc") String mc);
-@RestResource(path = "/articles")
+
+    @RestResource(path = "/articles")
     public List<Article> findAll();
-
-
 }

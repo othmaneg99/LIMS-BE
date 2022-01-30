@@ -15,15 +15,15 @@ public class CategoryRestService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @PostMapping ("/admin/createCategory")
-    public Category createCategory( @RequestBody Category category) {
+    @PostMapping("/admin/createCategory")
+    public Category createCategory(@RequestBody Category category) {
         return categoryRepository.save(category);
     }
 
     @DeleteMapping("/admin/categories/{id}")
     public Map<String, Boolean> deleteCategory(@PathVariable(value = "id") Long categoryId)
             throws ResourceNotFoundException {
-         Category category = categoryRepository.findById(categoryId)
+        Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new ResourceNotFoundException("Category not found for this id :: " + categoryId));
 
         categoryRepository.delete(category);

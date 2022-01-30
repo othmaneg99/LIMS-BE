@@ -2,7 +2,6 @@ package ma.mundiapolis.lims.web;
 
 import ma.mundiapolis.lims.dao.ArticleRepository;
 import ma.mundiapolis.lims.entities.Article;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,14 +13,15 @@ import java.nio.file.Paths;
 
 @RestController
 public class CatalogueRestController {
-private ArticleRepository articleRepository;
+    private ArticleRepository articleRepository;
 
-    public CatalogueRestController(ArticleRepository articleRepository){
+    public CatalogueRestController(ArticleRepository articleRepository) {
         this.articleRepository = articleRepository;
     }
-    @GetMapping(path="/photoArticle/{id}",produces = MediaType.IMAGE_JPEG_VALUE)
+
+    @GetMapping(path = "/photoArticle/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     public byte[] getPhoto(@PathVariable("id") Long id) throws IOException {
         Article a = articleRepository.findById(id).get();
-        return Files.readAllBytes(Paths.get(System.getProperty("user.home")+"/lims/articles/"+a.getPhotoName()));
+        return Files.readAllBytes(Paths.get(System.getProperty("user.home") + "/lims/articles/" + a.getPhotoName()));
     }
 }

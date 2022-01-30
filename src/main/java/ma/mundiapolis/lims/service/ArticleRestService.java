@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class ArticleRestService {
     @Autowired
     private ArticleRepository articleRepository;
-@RequestMapping(value="/addArticle")
+
+    @RequestMapping(value = "/addArticle")
     public Article addArticle(Article a) {
         return articleRepository.save(a);
     }
