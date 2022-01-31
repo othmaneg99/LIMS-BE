@@ -1,5 +1,6 @@
 package ma.mundiapolis.lims.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,5 +19,6 @@ public class Laboratory {
     private String name;
     private boolean isActive;
     @OneToMany(mappedBy = "laboratory")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Article> articles;
 }

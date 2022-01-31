@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 
 @Service
 @Transactional
-public class LimsServiceImpl implements LimsService {
+public class ResourceInitServiceImpl implements IResourceInitService {
 
     @Autowired
     ArticleRepository articleRepository;
